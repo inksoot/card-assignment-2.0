@@ -1,0 +1,1 @@
+global.state_candle = true;

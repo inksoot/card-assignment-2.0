@@ -6,6 +6,13 @@ ai_cards = ds_list_create();
 player_cards = ds_list_create();
 discard_list = ds_list_create();
 
+
+///CURRENT IDEA 3 rounds
+//can burn 1 card, negating a round, but you don’t know the opponent’s card
+///
+
+
+//scoring
 global.player_score = 0;
 global.ai_score = 0;
 
