@@ -170,7 +170,8 @@ if (game_state = state_selection_ai) {
 
 if (game_state = state_faceup_ai_selection) {
 	ai_cards[|ai_index].facedown = false;
-	global.candle_use = true;
+if(!global.candle_picked_up){
+	global.candle_use = true;}
 	
 	if (ai_cards[|ai_index].card_type == card_rock) {AI_card_selected = 0;}
 	
@@ -195,58 +196,68 @@ if (game_state = state_compare) {
 	j = 0;
 	k = 0;
 	
-	if (player_deal_card_inst.card_type == card_rock) {
-		if (AI_card_selected == 2) {
-			global.player_score += 1;
-			if !audio_is_playing(sd_win){
-				audio_play_sound(sd_win,1,false);
-			}
-		}
-		
-		else if (AI_card_selected == 1) {
-			global.ai_score += 1;
-			if !audio_is_playing(sd_fail){
-				audio_play_sound(sd_fail,1,false);
-			}
-		}
+	//if candle used, player/ai score += 0 
+	if(global.candle_was_used){
+		show_debug_message("aiya");
+		global.player_score +=0;
+		global.ai_score +=0;
+		game_state = state_discard; 
 	}
+	else{
 	
-	else if (player_deal_card_inst.card_type==card_paper) {
+		if (player_deal_card_inst.card_type == card_rock) {
+			if (AI_card_selected == 2) {
+				global.player_score += 1;
+				if !audio_is_playing(sd_win){
+					audio_play_sound(sd_win,1,false);
+				}
+			}
 		
-		if (AI_card_selected == 0) {
-			global.player_score +=1;
-			if !audio_is_playing(sd_win){
-				audio_play_sound(sd_win,1,false);
+			else if (AI_card_selected == 1) {
+				global.ai_score += 1;
+				if !audio_is_playing(sd_fail){
+					audio_play_sound(sd_fail,1,false);
+				}
 			}
 		}
+	
+		else if (player_deal_card_inst.card_type==card_paper) {
 		
-		else if (AI_card_selected == 2) {
-			global.ai_score +=1;
-			if !audio_is_playing(sd_fail){
-				audio_play_sound(sd_fail,1,false);
+			if (AI_card_selected == 0) {
+				global.player_score +=1;
+				if !audio_is_playing(sd_win){
+					audio_play_sound(sd_win,1,false);
+				}
 			}
+		
+			else if (AI_card_selected == 2) {
+				global.ai_score +=1;
+				if !audio_is_playing(sd_fail){
+					audio_play_sound(sd_fail,1,false);
+				}
 
+			}
 		}
-	}
 	
-	else if (player_deal_card_inst.card_type==card_scissor) {
+		else if (player_deal_card_inst.card_type==card_scissor) {
 		
-		if (AI_card_selected == 1) {
-			global.player_score +=1;
-			if !audio_is_playing(sd_win){
-				audio_play_sound(sd_win,1,false);
+			if (AI_card_selected == 1) {
+				global.player_score +=1;
+				if !audio_is_playing(sd_win){
+					audio_play_sound(sd_win,1,false);
+				}
+			}
+		
+			else if (AI_card_selected == 0) {
+				global.ai_score +=1;
+				if !audio_is_playing(sd_fail){
+					audio_play_sound(sd_fail,1,false);
+				}
 			}
 		}
-		
-		else if (AI_card_selected == 0) {
-			global.ai_score +=1;
-			if !audio_is_playing(sd_fail){
-				audio_play_sound(sd_fail,1,false);
-			}
-		}
-	}
-	game_state = state_discard;
-} 
+		game_state = state_discard;
+	} 
+}
 
 else if(game_state == state_discard){
 	player_deal_card_inst = obj_card;

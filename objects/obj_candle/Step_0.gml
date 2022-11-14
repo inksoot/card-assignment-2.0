@@ -20,7 +20,7 @@ if (global.candle_use == true){
 			global.candle_picked_up = true;
 	}
 	if(global.candle_picked_up == true){
-		show_debug_message("picked up");
+		//show_debug_message("picked up");
 		sprite_index = spr_candle_3;
 		
 ////destroy card when needed
@@ -30,8 +30,21 @@ if (global.candle_use == true){
 	if (ai_burn_card!=noone) {
 	if position_meeting(mouse_x,mouse_y,ai_burn_card)and(mouse_check_button_pressed(mb_left)){
 		show_debug_message("yeet");
-		instance_destroy(ai_burn_card); 
+		change_ai_sprite = true;
+		//instance_destroy(ai_burn_card); //change
 	}
+	
+	if(change_ai_sprite){
+			show_debug_message("change ai sprite");
+			ai_burn_card.sprite_index = spr_outline;
+			//skip comparing, nobody gains points for that round
+			//game_state = obj_game_manager.state_discard;
+			global.candle_was_used = true;
+			obj_game_manager.waiting_for_alarm = true;
+		}
+		
+	else{} //placeholder
+	change_ai_sprite = false;
 	
 	} // for now. delete when line below is uncommented
 //	obj_game_manager.waiting_for_alarm = true;
