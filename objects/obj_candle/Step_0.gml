@@ -22,17 +22,19 @@ if(global.state_candle){ //should be true by default
 if (global.candle_use == true){
 	//show_debug_message("candle use triggered");
 	//if mouse is on obj_candle
-	if position_meeting(mouse_x,mouse_y,obj_candle){
+	if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
 			//show_debug_message(global.ai_specific_card);
 			//show_debug_message(initial_x);
 			//show_debug_message(initial_y);
-		if(mouse_check_button(mb_left)){
-			show_debug_message("picked up");
+			
 			global.candle_picked_up = true;
-			sprite_index = spr_candle_3;
-		}
-	else{ } //placeholder
 	}
+	if(global.candle_picked_up == true){
+		show_debug_message("picked up");
+		sprite_index = spr_candle_3;
+	}
+		
+	else{ } //placeholder
 }
 
 ////destroy card when needed
