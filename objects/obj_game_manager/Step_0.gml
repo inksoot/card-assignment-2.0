@@ -1,4 +1,9 @@
 
+
+if !audio_is_playing(sd_bg_music){
+	audio_play_sound(sd_bg_music,1,false);
+}
+	
 card_x = 100;
 card_y = room_height/2;
 
@@ -172,6 +177,10 @@ if(game_state == state_candle){
 	if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
 		global.candle_extinguished = true;
 		global.candle_was_used = true;
+		if !audio_is_playing(sd_fire){
+			audio_play_sound(sd_fire,1,false);
+		}
+		
 		show_debug_message("candle pressed");
 		game_state = state_compare;
 	}

@@ -32,7 +32,7 @@
     "spriteId": {"name":"spr_tile","path":"sprites/spr_tile/spr_tile.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 3.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
