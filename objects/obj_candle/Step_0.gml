@@ -10,8 +10,35 @@ if(global.state_candle){ //should be true by default
 }
 
 if (global.candle_extinguished == true){
-	show_debug_message("candle was extinguished!");
+	//extinguishes the actual sprite as an indicator
+	sprite_index = spr_candle_3;
 	
+	//clicking on the ai card does xyz...
+	ai_burn_card = instance_position(mouse_x,mouse_y,obj_card);
+
+	if (ai_burn_card!=noone) {
+		if position_meeting(mouse_x,mouse_y,ai_burn_card)and(mouse_check_button_pressed(mb_left)){
+			show_debug_message("yeet");
+			change_ai_sprite = true;
+			obj_game_manager.game_state = obj_game_manager.state_faceup_ai_selection;
+			global.candle_was_used = true;
+			}
+		}
+	
+	//the effects that happen when this stuff happens
+	if(change_ai_sprite){
+		//throw in a screen shake and sfx here
+		//no time to probably debug the sprite code
+		
+	}
+	//if(change_ai_sprite){
+	//		show_debug_message("change ai sprite");
+	//		ai_burn_card.sprite_index = spr_outline;
+	//		//skip comparing, nobody gains points for that round
+	//		//game_state = obj_game_manager.state_discard;
+	//		global.candle_was_used = true;
+	//		obj_game_manager.waiting_for_alarm = true;
+	//	}
 }
 
 //candle_picked_up tracks candle extinguish or not

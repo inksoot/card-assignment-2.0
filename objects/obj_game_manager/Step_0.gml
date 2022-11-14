@@ -177,13 +177,6 @@ if(game_state == state_candle){
 		//move onto next thing
 		//show_debug_message("moving onto next stage");
 		game_state = state_faceup_ai_selection;
-		//show_debug_message(game_state); //4
-		//show_debug_message(waiting_for_alarm); //false
-		//if (waiting_for_alarm) {
-		//	game_state = -4;
-		//	alarm[4] = 0.25 * room_speed;
-		//}
-		//waiting_for_alarm = false;
 	}
 }
 
@@ -227,7 +220,7 @@ if (game_state == state_compare) {
 		global.player_score +=0;
 		global.ai_score +=0;
 		game_state = state_discard; 
-		//global.candle_was_used = false;
+		global.candle_was_used = false;
 	}
 	else if (!global.candle_was_used){ //if candle was not used
 	
