@@ -12,10 +12,7 @@ card_type = card_rock;
 
 card_holder = ch_ai;
 
-//move_speed = 0.2;
-
-//goal_x =x;
-//goal_y = y;
+//ai_burn_card = obj_card;
 
 target_x = x;
 target_y = y;

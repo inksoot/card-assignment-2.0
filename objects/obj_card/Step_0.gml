@@ -16,26 +16,37 @@ y = lerp(y, target_y, 0.1);
 
 
 //destroy card when needed
-if(global.candle_picked_up){
-	//if position_meeting(mouse_x,mouse_y,global.ai_specific_card){
-	//	global.ai_specific_card.sprite_index = spr_back_outline;
-	//}
-	//else{global.ai_specific_card = spr_back;}
+//if(global.candle_picked_up){
+//	//if position_meeting(mouse_x,mouse_y,global.ai_specific_card){
+//	//	global.ai_specific_card.sprite_index = spr_back_outline;
+//	//}
+//	//else{global.ai_specific_card = spr_back;}
 	
-	if position_meeting(x,y,global.ai_specific_card)and(mouse_check_button_pressed(mb_left)){
-		show_debug_message("yeet");
-		instance_destroy(global.ai_specific_card);
-	}
-	global.candle_picked_up = false; //check if this clashes later
-	global.candle_use = false;
-	//reset candle position back to original position
-	//x = initial_x;
-	//y = initial_y;
+////MAIN CODE, COMMETING OUT FOR NOW
+//	//if position_meeting(mouse_x,mouse_y,global.ai_specific_card)and(mouse_check_button_pressed(mb_left)){
+//	//	show_debug_message("yeet");
+//	//	instance_destroy(global.ai_specific_card);
+//	//}
+	
+//	ai_burn_card = instance_position(mouse_x,mouse_y,obj_card);
+	
+//	if (ai_burn_card!=noone) {
+//	if position_meeting(mouse_x,mouse_y,ai_burn_card)and(mouse_check_button_pressed(mb_left)){
+//		show_debug_message("yeet");
+//		instance_destroy(ai_burn_card);
+//	}
+	
+//
+//		global.candle_use = false;
+		
+//	//reset candle position back to original position
+//	//x = initial_x;
+//	//y = initial_y;
 	
 	
-	//obj_game_manager.waiting_for_alarm = true;
-}
-
+//	//obj_game_manager.waiting_for_alarm = true;
+//	}
+//}
 //id instance 
 	//player_deal_card_inst = instance_position(mouse_x,mouse_y,obj_card);
 	
