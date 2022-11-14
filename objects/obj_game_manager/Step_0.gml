@@ -170,22 +170,25 @@ if (game_state = state_selection_ai) {
 
 if (game_state = state_faceup_ai_selection) {
 	ai_cards[|ai_index].facedown = false;
-if(!global.candle_picked_up){
-	global.candle_use = true;}
+	
+	//if(!global.candle_picked_up){
+	//	global.candle_use = true;}
+	
+	//else{
 	
 	if (ai_cards[|ai_index].card_type == card_rock) {AI_card_selected = 0;}
 	
 	if (ai_cards[|ai_index].card_type == card_paper) {AI_card_selected = 1;}
 	
 	if (ai_cards[|ai_index].card_type == card_scissor) {AI_card_selected = 2;}
-	
-	
+	waiting_for_alarm = true;
+//}
 	
 	//waiting_for_alarm = true;
 	
 	if (waiting_for_alarm) {
 		game_state = -4;
-		alarm[5] = 1 * room_speed;
+		alarm[6] = 1 * room_speed;
 	}
 	
 }
@@ -195,6 +198,9 @@ if (game_state = state_compare) {
 	i = 0;
 	j = 0;
 	k = 0;
+	//show_debug_message(global.candle_was_used); shows as true 2nd round
+	//show_debug_message(obj_candle.change_ai_sprite);
+	//false both round 1 and 2
 	
 	//if candle used, player/ai score += 0 
 	if(global.candle_was_used){
@@ -202,8 +208,9 @@ if (game_state = state_compare) {
 		global.player_score +=0;
 		global.ai_score +=0;
 		game_state = state_discard; 
+		//global.candle_was_used = false;
 	}
-	else{
+	else if (!global.candle_was_used){ //if candle was not used
 	
 		if (player_deal_card_inst.card_type == card_rock) {
 			if (AI_card_selected == 2) {
