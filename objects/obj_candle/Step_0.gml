@@ -9,6 +9,11 @@ if(global.state_candle){ //should be true by default
 	}
 }
 
+if (global.candle_extinguished == true){
+	show_debug_message("candle was extinguished!");
+	
+}
+
 //candle_picked_up tracks candle extinguish or not
 //candle extinguishes if player chooses to use it
 

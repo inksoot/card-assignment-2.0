@@ -1,3 +1,23 @@
+game_state = state_faceup_ai_selection;
+waiting_for_alarm = true;
+
+//show_debug_message(game_state);
+
+//CHOOSE CANDLE STATE HERE!! MOVED PREV ALARM 4 to ALARM 5
+//if candle is clicked!! do shit!
+//otherwise if it's not!! then just progress (waiting for alarm false makes it move on
+//if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
+//	global.candle_extinguished = true;
+//	show_debug_message("candle pressed");
+//}
+//else if (keyboard_check_pressed(vk_space)){
+//	//move onto next thing
+//	show_debug_message("moving onto next stage");
+//	game_state = state_faceup_ai_selection;
+//	waiting_for_alarm = false;
+//}
+
+
 
 ////24 cards total
 //if(ds_list_size(discard_list) == 24){
@@ -18,11 +38,3 @@
 
 //game_state = state_initial_deal; //resetting
 //waiting_for_alarm = false;
-
-//CHOOSE CANDLE STATE HERE!! MOVED PREV ALARM 4 to ALARM 5
-//if candle is clicked!! do shit!
-if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
-	
-}
-//otherwise if it's not!! then just progress (waiting for alarm false makes it move on
-waiting_for_alarm = false;

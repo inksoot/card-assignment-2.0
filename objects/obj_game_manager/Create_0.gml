@@ -25,10 +25,17 @@ state_initial_deal = 0;
 state_ai_deal = 1;
 state_player_deal = 1.5;
 
+//state_selection =2;
+//state_selection_ai =3;
+//state_compare = 4;
+//state_faceup_ai_selection = 5;
+//state_discard = 8;
+
 state_selection =2;
 state_selection_ai =3;
-state_compare = 4;
-state_faceup_ai_selection = 5
+state_candle = 4;
+state_compare = 5;
+state_faceup_ai_selection = 6;
 state_discard = 8;
  
 ch_player = 11;
@@ -46,6 +53,8 @@ player_card_i = 0;
 discard_card_i = 6;
 
 global.ai_specific_card = 0; //initialization for specific ai id
+
+global.candle_extinguished = false //candle is NOT extinguished
 
 game_state = state_initial_deal;
 

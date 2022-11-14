@@ -148,7 +148,7 @@ if (game_state == state_selection) {
 	}		
 }
 
-if (game_state = state_selection_ai) {
+if (game_state == state_selection_ai) {
 	ai_index = random_range(0,2);
 	ai_cards[|ai_index].card_holder = ch_deal;
 	global.ai_specific_card = ai_cards[|ai_index].card_holder
@@ -168,7 +168,26 @@ if (game_state = state_selection_ai) {
 	}
 }
 
-if (game_state = state_faceup_ai_selection) {
+if(game_state == state_candle){
+	if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
+		global.candle_extinguished = true;
+		show_debug_message("candle pressed");
+	}
+	else if (keyboard_check_pressed(vk_space)){
+		//move onto next thing
+		//show_debug_message("moving onto next stage");
+		//game_state = state_faceup_ai_selection;
+		show_debug_message(game_state);
+		show_debug_message(waiting_for_alarm); //false
+		if (waiting_for_alarm) {
+			game_state = -4;
+			alarm[4] = 0.25 * room_speed;
+		}
+		//waiting_for_alarm = false;
+	}
+}
+
+if (game_state == state_faceup_ai_selection) {
 	ai_cards[|ai_index].facedown = false;
 	
 	//if(!global.candle_picked_up){
@@ -181,19 +200,19 @@ if (game_state = state_faceup_ai_selection) {
 	if (ai_cards[|ai_index].card_type == card_paper) {AI_card_selected = 1;}
 	
 	if (ai_cards[|ai_index].card_type == card_scissor) {AI_card_selected = 2;}
-	waiting_for_alarm = true;
+	//waiting_for_alarm = true;
 //}
 	
-	//waiting_for_alarm = true;
+	waiting_for_alarm = true;
 	
 	if (waiting_for_alarm) {
 		game_state = -4;
-		alarm[6] = 1 * room_speed;
+		alarm[5] = 1 * room_speed;
 	}
 	
 }
 
-if (game_state = state_compare) {
+if (game_state == state_compare) {
 	discard_card_i = 6;	
 	i = 0;
 	j = 0;
