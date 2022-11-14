@@ -12,13 +12,20 @@ if(global.state_candle){ //should be true by default
 if (global.candle_extinguished == true) {
 	//extinguishes the actual sprite as an indicator
 	sprite_index = spr_candle_3;
+	//change_ai_sprite = true;
+
+}
+
+if(change_ai_sprite){
+	global.candle_was_used = true;
 	
-	if(global.is_candle_used == false){
-		global.candle_was_used = true;
-	}
-	
-	global.is_candle_used = false;
-	
+	//if(global.is_candle_used == false){
+	//	global.candle_was_used = true;
+	//}
+	//if(global.is_candle_used == true){
+	//	global.candle_was_used = false;
+	//	change_ai_sprite = false;
+	//}
 }
 	
 	

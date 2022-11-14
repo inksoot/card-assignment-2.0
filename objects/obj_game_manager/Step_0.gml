@@ -171,10 +171,12 @@ if (game_state == state_selection_ai) {
 if(game_state == state_candle){
 	if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
 		global.candle_extinguished = true;
+		global.candle_was_used = true;
 		show_debug_message("candle pressed");
 		game_state = state_compare;
 	}
 	else if (keyboard_check_pressed(vk_space)){
+		global.candle_was_used = false;
 		//move onto next thing
 		//show_debug_message("moving onto next stage");
 		game_state = state_faceup_ai_selection;
@@ -221,7 +223,8 @@ if (game_state == state_compare) {
 		global.player_score +=0;
 		global.ai_score +=0;
 		game_state = state_discard; 
-		global.candle_was_used = false;
+		//global.is_candle_used = true;
+		//obj_candle.change_ai_sprite = false;
 	}
 	
 	else if (!global.candle_was_used){ //if candle was not used
