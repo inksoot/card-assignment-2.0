@@ -176,13 +176,13 @@ if(game_state == state_candle){
 	else if (keyboard_check_pressed(vk_space)){
 		//move onto next thing
 		//show_debug_message("moving onto next stage");
-		//game_state = state_faceup_ai_selection;
-		show_debug_message(game_state);
-		show_debug_message(waiting_for_alarm); //false
-		if (waiting_for_alarm) {
-			game_state = -4;
-			alarm[4] = 0.25 * room_speed;
-		}
+		game_state = state_faceup_ai_selection;
+		//show_debug_message(game_state); //4
+		//show_debug_message(waiting_for_alarm); //false
+		//if (waiting_for_alarm) {
+		//	game_state = -4;
+		//	alarm[4] = 0.25 * room_speed;
+		//}
 		//waiting_for_alarm = false;
 	}
 }
@@ -207,7 +207,7 @@ if (game_state == state_faceup_ai_selection) {
 	
 	if (waiting_for_alarm) {
 		game_state = -4;
-		alarm[5] = 1 * room_speed;
+		alarm[6] = 1 * room_speed;
 	}
 	
 }
