@@ -45,6 +45,7 @@ ai_card_i = 0;
 player_card_i = 0;
 discard_card_i = 6;
 
+global.ai_specific_card = 0; //initialization for specific ai id
 
 game_state = state_initial_deal;
 

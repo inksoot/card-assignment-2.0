@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"spr_candle","path":"sprites/spr_candle/spr_candle.yy",},"order":12,},
+    {"id":{"name":"spr_back_outline","path":"sprites/spr_back_outline/spr_back_outline.yy",},"order":15,},
     {"id":{"name":"sd_shuffle","path":"sounds/sd_shuffle/sd_shuffle.yy",},"order":1,},
     {"id":{"name":"sd_fail","path":"sounds/sd_fail/sd_fail.yy",},"order":2,},
     {"id":{"name":"sd_whoosh","path":"sounds/sd_whoosh/sd_whoosh.yy",},"order":0,},
@@ -15,6 +16,7 @@
     {"id":{"name":"spr_outline","path":"sprites/spr_outline/spr_outline.yy",},"order":9,},
     {"id":{"name":"spr_rock","path":"sprites/spr_rock/spr_rock.yy",},"order":5,},
     {"id":{"name":"obj_ai_candle","path":"objects/obj_ai_candle/obj_ai_candle.yy",},"order":4,},
+    {"id":{"name":"spr_candle_3","path":"sprites/spr_candle_3/spr_candle_3.yy",},"order":16,},
     {"id":{"name":"spr_candle2","path":"sprites/spr_candle2/spr_candle2.yy",},"order":13,},
     {"id":{"name":"fnt_1","path":"fonts/fnt_1/fnt_1.yy",},"order":0,},
     {"id":{"name":"obj_tile","path":"objects/obj_tile/obj_tile.yy",},"order":2,},

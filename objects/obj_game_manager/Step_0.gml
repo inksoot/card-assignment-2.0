@@ -117,7 +117,7 @@ if(game_state == state_player_deal) {
 if (game_state == state_selection) {
 	player_card_i = 0;
 	
-	player_deal_card_inst = instance_position(mouse_x,mouse_y,obj_card)
+	player_deal_card_inst = instance_position(mouse_x,mouse_y,obj_card);
 	
 	if (player_deal_card_inst!=noone) {
 		if (player_deal_card_inst.card_holder == ch_player) {
@@ -151,10 +151,13 @@ if (game_state == state_selection) {
 if (game_state = state_selection_ai) {
 	ai_index = random_range(0,2);
 	ai_cards[|ai_index].card_holder = ch_deal;
+	global.ai_specific_card = ai_cards[|ai_index].card_holder
 	ai_cards[|ai_index].target_x = 400;
+	
 	if !audio_is_playing(sd_whoosh){
 		audio_play_sound(sd_whoosh,1,false);
 	}
+	
 	ai_cards[|ai_index].target_y = 415;
 
 	waiting_for_alarm = true;
@@ -167,6 +170,7 @@ if (game_state = state_selection_ai) {
 
 if (game_state = state_faceup_ai_selection) {
 	ai_cards[|ai_index].facedown = false;
+	global.candle_use = true;
 	
 	if (ai_cards[|ai_index].card_type == card_rock) {AI_card_selected = 0;}
 	
@@ -174,7 +178,9 @@ if (game_state = state_faceup_ai_selection) {
 	
 	if (ai_cards[|ai_index].card_type == card_scissor) {AI_card_selected = 2;}
 	
-	waiting_for_alarm = true;
+	
+	
+	//waiting_for_alarm = true;
 	
 	if (waiting_for_alarm) {
 		game_state = -4;
