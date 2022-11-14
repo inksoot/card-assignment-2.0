@@ -172,6 +172,7 @@ if(game_state == state_candle){
 	if position_meeting(mouse_x,mouse_y,obj_candle) and (mouse_check_button_pressed(mb_left)){
 		global.candle_extinguished = true;
 		show_debug_message("candle pressed");
+		game_state = state_compare;
 	}
 	else if (keyboard_check_pressed(vk_space)){
 		//move onto next thing
@@ -222,6 +223,7 @@ if (game_state == state_compare) {
 		game_state = state_discard; 
 		global.candle_was_used = false;
 	}
+	
 	else if (!global.candle_was_used){ //if candle was not used
 	
 		if (player_deal_card_inst.card_type == card_rock) {

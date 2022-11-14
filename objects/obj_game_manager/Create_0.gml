@@ -56,6 +56,8 @@ global.ai_specific_card = 0; //initialization for specific ai id
 
 global.candle_extinguished = false //candle is NOT extinguished
 
+global.is_candle_used = false;
+
 game_state = state_initial_deal;
 
 ai_index = -1;
